@@ -82,55 +82,39 @@
           <h1 class="yellow-header">PERFECT FOR YOU</h1>
           <h4 class="sub-header">From start-ups to small business owners to accountants and bookkeepers, AccountingSuite is flexible, powerful and reliable.</h4>
           <hr class="intro-divider">
+          <section>
+            <div ng-controller='RegController as ctrl' class="reg-section">
+              <span class="network-name btn btn-secondary btn-lg register" ng-click="ctrl.showMessageForUser();">Try now</span>
+              <div ng-if="ctrl.showMessage"> 
 
-          <div ng-controller='RegController as ctrl'>
-            <span class="network-name btn btn-secondary btn-lg register" ng-click="ctrl.showMessageForUser();">Try now</span>
-            <div ng-if="ctrl.showMessage"> 
+                <form name='regForm' novalidate>
 
-              <form name='regForm' novalidate>
+                  <input type="email" name="email" placeholder="Email"
+                  ng-model="reg.user.email" class="register"
+                  required size=30>
+                  <span ng-if="regForm.email.$invalid && regForm.email.$touched"><br>
+                    Must be a valid email address: handle@domain format
+                  </span>
+                  <br>
+                  <input type="password" name="password" placeholder="Password"
+                  ng-model="reg.user.password"
+                  required size=30 class="register">
+                  <span ng-if="regForm.password.$invalid && regForm.password.$touched"><br>
+                    Must be a valid password
+                  </span>
+                  <br>
+                  <span class="network-name btn btn-secondary btn-lg register" ng-click="ctrl.regNewUser();" ng-disabled="regForm.email.$invalid || && regForm.password.$invalid">Register</span><br>
+                  <span ng-if="ctrl.showCheckEmail">
+                    Check your email
+                  </span>
+                </form>
 
-                <input type="email" name="email" placeholder="Email"
-                ng-model="reg.user.email" class="register"
-                required size=30>
-                <span ng-if="regForm.email.$invalid && regForm.email.$touched"><br>
-                  Must be a valid email address: handle@domain format
-                </span>
-                <br>
-                <input type="password" name="password" placeholder="Password"
-                ng-model="reg.user.password"
-                required size=30 class="register">
-                <span ng-if="regForm.password.$invalid && regForm.password.$touched"><br>
-                  Must be a valid password
-                </span>
-                <br>
-                <span class="network-name btn btn-secondary btn-lg register" ng-click="ctrl.regNewUser();" ng-disabled="regForm.email.$invalid || && regForm.password.$invalid">Register</span><br>
-                <span ng-if="ctrl.showCheckEmail">
-                  Check your email
-                </span>
-              </form>
-
+              </div>
             </div>
-          </div>
-
+          </section>
         </div>
       </div>
     </header>
-    <!-- 
-    <section class="content-section-0">
-
-      <div class="container content-section-0">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="clearfix"></div>
-            <p class="lead top-title"> <strong>AccountingSuite</strong> is a powerful, all-in-one business application for accounting, cloud banking,&nbsp;order management,&nbsp;inventory management, project and time tracking into one cloud-driven platform.&nbsp;</p>
-          </div>
-          <div class="col-xs-12 mr-auto">
-            <img class="img-fluid" src="img/acs-mac-logo.png" alt="">
-          </div>
-        </div>
-
-      </div>
-    </section> -->
 
     <!-- Page Content -->
     <section class="content-section-0">
