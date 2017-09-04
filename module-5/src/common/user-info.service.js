@@ -20,7 +20,7 @@ function UserInfoService() {
 
   function emptyUser() {
     return {
-      firstname: "-",
+      firstname: "",
       lastname: "",
       email: "",
       phone: "",
